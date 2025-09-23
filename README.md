@@ -23,3 +23,8 @@ DBQuery(
 + ``query(string $sql, bool $isOneValue = true)``
 + ``exec(string $sql)``
 + ``executeProcedure($sql, $out)``
+
+```
+$dbQuery = new DBQuery('адрес', 'имя базы', 'пользователь', 'пароль');
+$queryResult = $dbQuery->query('SELECT * FROM catalog_engine_types WHERE id = 1');
+```
