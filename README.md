@@ -10,15 +10,10 @@ DBQuery(
 )
 ```
 
-Операции. 
-Аргументы: 
-+ ``$sql`` - запрос вида ``select * from table_name where field=:arg``
-+ ``$args`` - массив аргументов [':arg' => $arg]
-
 Типы операций:
-+ ``insert(string $sql, array $args)``
-+ ``update(string $sql, array $args): bool``
-+ ``delete(string $sql, array $args): bool``
++ ``insert``
++ ``update``
++ ``delete``
 + ``queryPrepared(string $sqlExpession, ?array $arguments = null, bool $isOneValue = true)``
 + ``query(string $sql, bool $isOneValue = true)``
 + ``exec(string $sql)``
