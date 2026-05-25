@@ -46,7 +46,16 @@ class DBQuery
         } else {
             $stmt->execute();
         }
-        return $is_one_value ? $stmt->fetch(\PDO::FETCH_ASSOC) : $stmt->fetchAll();
+        
+        if ($is_one_value) {
+            return (object)$stmt->fetch(\PDO::FETCH_ASSOC);
+        } else {
+            $filtered_rows_array = [];
+            foreach ($stmt->fetchAll() as $row) {
+                $filtered_rows_array[] = (object)array_filter($row, 'is_string', ARRAY_FILTER_USE_KEY);
+            }
+            return $filtered_rows_array;
+        }
     }
 
     /** Выполняет запрос
@@ -58,7 +67,15 @@ class DBQuery
     public function query(string $sql, bool $is_one_value = true)
     {
         $data = $this->dbConnection->query($sql);
-        return $is_one_value ? $data->fetch(\PDO::FETCH_ASSOC) : $data->fetchAll();
+        if ($is_one_value) {
+            return (object)$cnct->fetch(\PDO::FETCH_ASSOC);
+        } else {
+            $filtered_rows_array = [];
+            foreach ($cnct->fetchAll() as $row) {
+                $filtered_rows_array[] = (object)array_filter($row, 'is_string', ARRAY_FILTER_USE_KEY);
+            }
+            return $filtered_rows_array;
+        }
     }
     
     /**
