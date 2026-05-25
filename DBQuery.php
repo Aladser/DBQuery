@@ -39,7 +39,7 @@ class DBQuery
      * @param bool $is_one_value одно или множество запрашиваемых полей
      * @return mixed массив строк или одно значение
     */
-    public function queryPrepared(string $sql, array $arguments=[], bool $is_one_value=true)
+    public function query_prepared(string $sql, array $arguments=[], bool $is_one_value=true)
     {
         $stmt = $this->dbConnection->prepare($sql);
         if (count($arguments)>0) {
@@ -139,7 +139,7 @@ class DBQuery
      * @param mixed $sql выражение
      * @param mixed $out выходная переменная, куда будет возвращен результат
     */
-    public function executeProcedure($sql, $out)
+    public function execute_procedure($sql, $out)
     {
         $stmt = $this->dbConnection->prepare("call $sql");
         $stmt->execute();
