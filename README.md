@@ -21,5 +21,6 @@ DBQuery(
 
 ```
 $dbQuery = new DBQuery('адрес', 'имя базы', 'пользователь', 'пароль');
-$queryResult = $dbQuery->query('SELECT * FROM catalog_engine_types WHERE id = 1');
+$data = $dbQuery->query('SELECT * FROM catalog_engine_types WHERE id = 1');
+$data = $dbQuery->queryPrepared('SELECT * FROM catalog_engine_types WHERE id = :id', ['id'=>1]);
 ```
