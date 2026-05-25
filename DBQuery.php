@@ -49,7 +49,7 @@ class DBQuery
         }
         
         if ($is_one_value) {
-            return (object)$stmt->fetch(\PDO::FETCH_ASSOC);
+            return $stmt->fetch(\PDO::FETCH_OBJ);
         } else {
             $filtered_rows_array = [];
             foreach ($stmt->fetchAll() as $row) {
@@ -69,7 +69,7 @@ class DBQuery
     {
         $data = $this->dbConnection->query($sql);
         if ($is_one_value) {
-            return (object)$cnct->fetch(\PDO::FETCH_ASSOC);
+            return $stmt->fetch(\PDO::FETCH_OBJ);
         } else {
             $filtered_rows_array = [];
             foreach ($cnct->fetchAll() as $row) {
