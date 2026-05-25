@@ -30,7 +30,7 @@ class DBQuery
         $this->userDB = $userDB;
         $this->passwordDB = $passwordDB;
         $this->db_type = $db_type;
-        $this->dbConnection = new \PDO("$this->db_type:dbname=$nameDB; host=$host", $userDB, $passwordDB);
+        $this->dbConnection = new \PDO("{$this->db_type}:dbname={$nameDB}; host={$host}", $userDB, $passwordDB);
     }
     
     /** Выполняет подготовленный запрос
