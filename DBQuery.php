@@ -60,7 +60,7 @@ class DBQuery
     */
     public function query(string $sql, bool $is_one_value = true)
     {
-        $data = $this->dbConnection->query($sql);
+        $stmt = $this->dbConnection->query($sql);
         $mode = \PDO::FETCH_OBJ;
         return $is_one_value ? $stmt->fetch($mode) : $stmt->fetchAll($mode);
     }
