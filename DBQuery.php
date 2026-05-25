@@ -35,6 +35,7 @@ class DBQuery
     
     /** Выполняет подготовленный запрос
      * 
+     * @param array $arguments аргументы запроса вида ['arg'=>value], которые вставляются в SQL :arg
      * @param bool $is_one_value одно или множество запрашиваемых полей
      * @return mixed массив строк или одно значение
     */
